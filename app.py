@@ -1,6 +1,6 @@
 import streamlit as st
 from astro_api import get_daily_horoscope, get_birth_chart
-from utils import get_answer
+from utils import get_answer, get_zodiac_sign
 
 st.set_page_config(page_title="Astrology Chatbot", page_icon="🔮", layout="centered")
 
