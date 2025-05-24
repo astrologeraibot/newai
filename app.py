@@ -2,7 +2,7 @@ import streamlit as st
 from astro_api import get_daily_horoscope, get_birth_chart
 from utils import get_answer
 
-st.set_page_config(page_title="Astrology Birth Chart GPT", page_icon="🔮", layout="centered")
+st.set_page_config(page_title="Astrology BOT AI", page_icon="🔮", layout="centered")
 
 st.markdown("<h1 style='text-align: center;'>Astrology Birth Chart GPT</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center;'>Expert astrologer GPT that needs your birth info to answer queries.</p>", unsafe_allow_html=True)
