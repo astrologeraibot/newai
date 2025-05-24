@@ -5,8 +5,9 @@ from utils import get_zodiac_sign
 st.set_page_config(page_title="Daily Horoscope", layout="centered")
 
 st.title("🔮 Astrology Daily Horoscope")
-st.write("Get your free daily horoscope and a brief birth chart reading.")
+st.write("Enter your birth details to receive your daily horoscope and a short birth chart summary.")
 
+# --- Birth Input Form ---
 with st.form("birth_form"):
     name = st.text_input("Name")
     dob = st.date_input("Date of Birth")
@@ -14,6 +15,7 @@ with st.form("birth_form"):
     place = st.text_input("Place of Birth")
     submitted = st.form_submit_button("Get Horoscope")
 
+# --- Show results if form is submitted ---
 if submitted:
     zodiac_sign = get_zodiac_sign(dob)
     st.success(f"Zodiac Sign: {zodiac_sign}")
@@ -22,6 +24,6 @@ if submitted:
     horoscope = get_daily_horoscope(zodiac_sign)
     st.write(horoscope)
 
-    st.subheader("🗺️ Short Birth Chart Summary")
+    st.subheader("🗺️ Birth Chart Summary")
     birth_chart = get_birth_chart(name, dob, tob, place)
     st.write(birth_chart)
