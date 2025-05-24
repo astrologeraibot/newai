@@ -25,6 +25,3 @@ def get_zodiac_sign(dob):
         return "Aquarius"
     elif (month == 2 and day >= 19) or (month == 3 and day <= 20):
         return "Pisces"
-
-def get_answer(question, sign):
-    return f"Sorry, I don’t have that info yet, but here's a prediction for {sign}: Stay positive today."
