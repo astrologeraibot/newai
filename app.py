@@ -50,4 +50,3 @@ if submitted:
         st.write(result or "No response received.")
     else:
         st.warning("Please enter a question.")
-
