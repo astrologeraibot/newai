@@ -1,6 +1,7 @@
 import streamlit as st
 from astro_api import get_daily_horoscope, get_birth_chart
 from utils import get_zodiac_sign
+from cities import city_list  # import the cities
 
 st.set_page_config(page_title="Daily Horoscope", layout="centered")
 
@@ -12,7 +13,7 @@ with st.form("birth_form"):
     name = st.text_input("Name")
     dob = st.date_input("Date of Birth")
     tob = st.time_input("Time of Birth")
-    place = st.text_input("Place of Birth")
+    place = st.selectbox("Place of Birth", city_list)  # searchable dropdown
     submitted = st.form_submit_button("Get Horoscope")
 
 # --- Show results if form is submitted ---
