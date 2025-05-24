@@ -31,4 +31,4 @@ with st.form("birth_form"):
         }
 
 if st.session_state.get('form_submitted'):
-    s
+    
