@@ -31,4 +31,27 @@ with st.form("birth_form"):
         }
 
 if st.session_state.get('form_submitted'):
-    
+    st.success("Birth details submitted. Ask your question below!")
+
+    user_input = st.text_input("Ask anything")
+
+    if st.button("Get Answer"):
+        user_input = user_input.strip()
+        if user_input:
+            with st.spinner("🔭 Analyzing your stars..."):
+                details = st.session_state['birth_details']
+                try:
+                    if "horoscope" in user_input.lower():
+                        result = get_daily_horoscope(details['sign'])
+                    elif "birth chart" in user_input.lower():
+                        result = get_birth_chart(
+                            details['name'], details['dob'], details['tob'], details['place']
+                        )
+                    else:
+                        result = get_answer(user_input, details['sign'])
+                except Exception as e:
+                    result = f"An error occurred: {str(e)}"
+            st.markdown("### 📝 Answer:")
+            st.write(result or "No response received.")
+        else:
+            st.warning("Please enter a question.")
