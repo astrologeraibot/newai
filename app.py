@@ -33,20 +33,21 @@ if submitted:
         st.session_state['user_input'] = ""
 
     user_input = st.text_input("Ask anything", value=st.session_state['user_input'])
+
     if st.button("Get Answer"):
-    user_input = user_input.strip()
-    if user_input:
-        with st.spinner("🔭 Analyzing your stars..."):
-            try:
-                if "horoscope" in user_input.lower():
-                    result = get_daily_horoscope(zodiac_sign)
-                elif "birth chart" in user_input.lower():
-                    result = get_birth_chart(name, date_of_birth, time_of_birth, birth_place)
-                else:
-                    result = get_answer(user_input, zodiac_sign)
-            except Exception as e:
-                result = f"An error occurred: {str(e)}"
-        st.markdown("### 📝 Answer:")
-        st.write(result or "No response received.")
-    else:
-        st.warning("Please enter a question.")
+        user_input = user_input.strip()
+        if user_input:
+            with st.spinner("🔭 Analyzing your stars..."):
+                try:
+                    if "horoscope" in user_input.lower():
+                        result = get_daily_horoscope(zodiac_sign)
+                    elif "birth chart" in user_input.lower():
+                        result = get_birth_chart(name, date_of_birth, time_of_birth, birth_place)
+                    else:
+                        result = get_answer(user_input, zodiac_sign)
+                except Exception as e:
+                    result = f"An error occurred: {str(e)}"
+            st.markdown("### 📝 Answer:")
+            st.write(result or "No response received.")
+        else:
+            st.warning("Please enter a question.")
