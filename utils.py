@@ -1,7 +1,8 @@
+import requests
+
 def get_zodiac_sign(dob):
     day = dob.day
     month = dob.month
-
     zodiac_dates = [
         ((1, 20), (2, 18), "aquarius"),
         ((2, 19), (3, 20), "pisces"),
@@ -16,13 +17,10 @@ def get_zodiac_sign(dob):
         ((11, 22), (12, 21), "sagittarius"),
         ((12, 22), (1, 19), "capricorn"),
     ]
-
     for start, end, sign in zodiac_dates:
         if (month == start[0] and day >= start[1]) or (month == end[0] and day <= end[1]):
             return sign
-    return "capricorn"  # fallback
-
-import requests
+    return "capricorn"
 
 def get_lat_lon_from_place(place):
     url = "https://nominatim.openstreetmap.org/search"
