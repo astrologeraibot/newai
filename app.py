@@ -2,8 +2,8 @@ import streamlit as st
 from datetime import date, time, datetime
 import random
 
-st.set_page_config(page_title="Astrology Bot", layout="centered")
-st.title("🔮 Offline Astrology Bot")
+st.set_page_config(page_title="Astrologer Bot", layout="centered")
+st.title("🔮 Astrologer Bot")
 st.markdown("Enter your birth details to receive your **daily horoscope**, **lucky traits**, and a basic **birth chart summary** — no APIs needed!")
 
 # ---------------------- Zodiac Logic ----------------------
