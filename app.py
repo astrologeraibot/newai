@@ -1,5 +1,5 @@
 import streamlit as st
-from astro_api import get_daily_horoscope, get_birth_chart
+from astro_api import get_daily_horoscope
 from utils import get_zodiac_sign
 from cities import city_list  # import the cities
 
