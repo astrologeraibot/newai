@@ -32,27 +32,40 @@ if submit:
     st.success(f"Hello {name}! Here's your astrology report.")
 
     # --- Daily Horoscope ---
+       # --- Daily Horoscope ---
     st.subheader("🌟 Daily Horoscope")
     try:
-        horoscope_url = "https://api.prokerala.com/v2/astrology/daily-horoscope"
+        # Get zodiac sign based on DOB
+        def get_zodiac_sign(day, month):
+            zodiac_signs = [
+                (120, 'Capricorn'), (218, 'Aquarius'), (320, 'Pisces'),
+                (420, 'Aries'), (521, 'Taurus'), (621, 'Gemini'),
+                (722, 'Cancer'), (823, 'Leo'), (923, 'Virgo'),
+                (1023, 'Libra'), (1122, 'Scorpio'), (1222, 'Sagittarius'), (1231, 'Capricorn')
+            ]
+            date_number = month * 100 + day
+            for cutoff, sign in zodiac_signs:
+                if date_number <= cutoff:
+                    return sign.lower()
+            return "capricorn"
+
+        zodiac_sign = get_zodiac_sign(dob.day, dob.month)
+
+        horoscope_url = f"https://api.prokerala.com/v2/astrology/daily-horoscope/{zodiac_sign.lower()}"
         headers = {
             "Authorization": f"Basic {API_KEY}:{API_SECRET}"
         }
-        horoscope_params = {
-            "sign": "",  # Optional: You can detect sign based on date
-            "datetime": dt.isoformat(),
-            "timezone": timezone
-        }
-        # If you know the zodiac sign, add it here as `sign: "aries"` etc.
-        horoscope_response = requests.get(horoscope_url, headers=headers, params=horoscope_params)
-        horoscope_data = horoscope_response.json()
 
-        if "horoscope" in horoscope_data:
-            st.markdown(horoscope_data["horoscope"]["prediction"])
+        response = requests.get(horoscope_url, headers=headers)
+        data = response.json()
+
+        if "horoscope" in data:
+            st.markdown(data["horoscope"]["prediction"])
         else:
-            st.warning("Could not fetch horoscope from Prokerala.")
+            st.warning("Could not get horoscope. Check API key or limit.")
+
     except Exception as e:
-        st.error(f"Horoscope error: {e}")
+        st.error(f"Error getting horoscope: {e}")
 
     # --- Birth Chart ---
     st.subheader("🗺️ Birth Chart Summary")
