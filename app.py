@@ -160,10 +160,6 @@ if submitted:
     zodiac = get_zodiac_sign(dob)
     data = daily_horoscopes[zodiac]
 
-      # 🎯 Show zodiac image
-    image_path = f"zodiac_images/{zodiac.lower()}.png"
-    st.image(image_path, caption=f"{zodiac} Sign", use_column_width=True)
-
     st.success(f"🌞 **Hello {name}, your Zodiac Sign is `{zodiac.title()}`**")
 
     st.subheader("🌟 Daily Horoscope")
