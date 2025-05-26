@@ -158,6 +158,9 @@ with st.form("astro_form"):
 
 if submitted:
     zodiac = get_zodiac_sign(dob)
+    image_path = f"zodiac_images/{zodiac.lower()}.png"  # Make sure image is in this folder
+    st.image(image_path, caption=f"{zodiac} Sign", use_column_width=True)
+    
     data = daily_horoscopes[zodiac]
 
     st.success(f"🌞 **Hello {name}, your Zodiac Sign is `{zodiac.title()}`**")
