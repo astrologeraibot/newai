@@ -1,17 +1,29 @@
 import requests
 
 def get_daily_horoscope(sign):
-    try:
-        url = f"https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign={sign.lower()}"
-        response = requests.get(url)
+    """Fetch daily horoscope using the free Aztro API."""
+    url = f"https://aztro.sameerkumar.website/?sign={sign.lower()}&day=today"
+    response = requests.post(url)
+    if response.status_code == 200:
         data = response.json()
-        horoscope = data.get("horoscope") or data.get("data", {}).get("horoscope")
-        return horoscope or "No daily horoscope available."
-    except Exception as e:
-        return f"Error fetching horoscope: {str(e)}"
+        return f"""
+**Horoscope**: {data['description']}
+
+- 💖 **Compatibility**: {data['compatibility']}
+- 💡 **Mood**: {data['mood']}
+- 🔢 **Lucky Number**: {data['lucky_number']}
+- 🕰️ **Lucky Time**: {data['lucky_time']}
+"""
+    else:
+        return "Sorry, couldn't fetch horoscope right now. Try again later."
 
 def get_birth_chart(name, dob, tob, place):
-    return (
-        f"{name}, born on {dob} at {tob} in {place}, your Sun sign is a key influence. "
-        "You are naturally drawn to growth, intuition, and personal transformation."
-    )
+    """Stub function — replace with real logic or API if needed."""
+    return f"""
+Name: {name}
+Date of Birth: {dob}
+Time of Birth: {tob}
+Place of Birth: {place}
+
+(For detailed birth charts, connect to an astrology API like AstroSeek or Swiss Ephemeris.)
+"""
