@@ -38,10 +38,10 @@ if submit:
         # Get zodiac sign based on DOB
         def get_zodiac_sign(day, month):
             zodiac_signs = [
-                (120, 'Capricorn'), (218, 'Aquarius'), (320, 'Pisces'),
-                (420, 'Aries'), (521, 'Taurus'), (621, 'Gemini'),
-                (722, 'Cancer'), (823, 'Leo'), (923, 'Virgo'),
-                (1023, 'Libra'), (1122, 'Scorpio'), (1222, 'Sagittarius'), (1231, 'Capricorn')
+                (120, 'capricorn'), (218, 'aquarius'), (320, 'pisces'),
+                (420, 'aries'), (521, 'taurus'), (621, 'gemini'),
+                (722, 'cancer'), (823, 'leo'), (923, 'virgo'),
+                (1023, 'libra'), (1122, 'scorpio'), (1222, 'sagittarius'), (1231, 'capricorn')
             ]
             date_number = month * 100 + day
             for cutoff, sign in zodiac_signs:
