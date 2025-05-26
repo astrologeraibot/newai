@@ -157,7 +157,6 @@ with st.form("astro_form"):
     submitted = st.form_submit_button("🔍 Reveal Horoscope")
 
 if submitted:
-if submitted:
     zodiac = get_zodiac_sign(dob)
     data = daily_horoscopes[zodiac]
 
