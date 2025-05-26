@@ -26,5 +26,3 @@ if submitted:
     st.write(horoscope)
 
     st.subheader("🗺️ Birth Chart Summary")
-    birth_chart = get_birth_chart(name, dob, tob, place)
-    st.write(birth_chart)
