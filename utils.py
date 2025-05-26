@@ -21,12 +21,3 @@ def get_zodiac_sign(dob):
         if (month == start[0] and day >= start[1]) or (month == end[0] and day <= end[1]):
             return sign
     return "capricorn"
-
-def get_lat_lon_from_place(place):
-    url = "https://nominatim.openstreetmap.org/search"
-    params = {"q": place, "format": "json"}
-    response = requests.get(url, params=params)
-    data = response.json()
-    if data:
-        return float(data[0]["lat"]), float(data[0]["lon"])
-    return None, None
