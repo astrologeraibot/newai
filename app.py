@@ -173,7 +173,7 @@ if submitted:
     🔢 **Lucky Number**: `{data['number']}`  
     """)
 
-      moon = get_moon_sign(dob, tob)
+    moon = get_moon_sign(dob, tob)
     rising = get_rising_sign(tob)
     element = get_element(zodiac)
     modality = get_modality(zodiac)
