@@ -180,4 +180,29 @@ if submitted:
     - 🌟 **Sun Sign (Zodiac)**: `{zodiac.title()}`
     - 💫 **Traits**: {zodiac_traits[zodiac]}
     """)
+    
+report = f"""
+🪪 Daily Horoscope Report for {name}
+
+🗓️ Date of Birth: {dob.strftime('%B %d, %Y')}
+🌞 Zodiac Sign: {zodiac.title()}
+
+🔮 Daily Horoscope:
+{data['general']}
+
+❤️ Love: {data['love']}
+💼 Career: {data['career']}
+🩺 Health: {data['health']}
+🎨 Lucky Color: {data['color']}
+🔢 Lucky Number: {data['number']}
+
+💫 Traits of {zodiac.title()}:
+{zodiac_traits[zodiac]}
+"""
+st.download_button(
+    label="📄 Download Horoscope Report",
+    data=report,
+    file_name=f"{name}_horoscope_report.txt",
+    mime="text/plain"
+)
 
