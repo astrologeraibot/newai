@@ -243,8 +243,9 @@ Sun Sign: {zodiac.title()} {emoji}
         mime="text/plain"
     )
 
-# Add the birth chart detailed link
-st.markdown(
-    '[If you want your Birth Chart in Detaille Click Here](https://www.example.com)',
-    unsafe_allow_html=True
-)
+# Your existing chatbot or form logic here
+
+st.markdown("### If you want your Birth Chart in Detaille")
+
+if st.button("Click Here"):
+    webbrowser.open_new_tab("https://www.example.com")
