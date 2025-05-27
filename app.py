@@ -242,3 +242,9 @@ Sun Sign: {zodiac.title()} {emoji}
         file_name=f"{name}_horoscope.txt",
         mime="text/plain"
     )
+
+# Add the birth chart detailed link
+st.markdown(
+    '[If you want your Birth Chart in Detaille Click Here](https://www.example.com)',
+    unsafe_allow_html=True
+)
