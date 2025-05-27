@@ -181,6 +181,7 @@ if submitted:
     - 💫 **Traits**: {zodiac_traits[zodiac]}
     """)
     
+st.subheader("📥 Download Your Horoscope Report")
 report = f"""
 🪪 Daily Horoscope Report for {name}
 
@@ -199,6 +200,7 @@ report = f"""
 💫 Traits of {zodiac.title()}:
 {zodiac_traits[zodiac]}
 """
+
 st.download_button(
     label="📄 Download Horoscope Report",
     data=report,
