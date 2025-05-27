@@ -186,8 +186,6 @@ zodiac = get_zodiac_sign(dob)
 data = daily_horoscopes[zodiac]
 
 st.success(f"🌞 **Hello {name}, your Zodiac Sign is `{zodiac.title()}`**")
-
-st.subheader("🌟 Daily Horoscope")
 st.markdown(f"""
 **{data['general']}**
 
