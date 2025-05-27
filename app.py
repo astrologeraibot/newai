@@ -170,7 +170,7 @@ zodiac_traits = {
 # ---------------------- UI Form ----------------------
 with st.form("astro_form"):
     name = st.text_input("Your Name")
-    dob = st.date_input("Date of Birth")
+    dob = st.date_input("Date of Birth", min_value=date(1900, 1, 1), max_value=date.today())
     tob = st.time_input("Time of Birth", value=time(12, 0))
     submitted = st.form_submit_button("🔍 Reveal Horoscope")
 
