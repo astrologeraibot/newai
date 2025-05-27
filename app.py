@@ -181,7 +181,24 @@ if submitted:
     - 💫 **Traits**: {zodiac_traits[zodiac]}
     """)
     
-st.subheader("📥 Download Your Horoscope Report")
+# ✅ Already defined earlier:
+zodiac = get_zodiac_sign(dob)
+data = daily_horoscopes[zodiac]
+
+st.success(f"🌞 **Hello {name}, your Zodiac Sign is `{zodiac.title()}`**")
+
+st.subheader("🌟 Daily Horoscope")
+st.markdown(f"""
+**{data['general']}**
+
+❤️ **Love**: {data['love']}  
+💼 **Career**: {data['career']}  
+🩺 **Health**: {data['health']}  
+🎨 **Lucky Color**: `{data['color']}`  
+🔢 **Lucky Number**: `{data['number']}`  
+""")
+
+# ✅ Now it's safe to generate report
 report = f"""
 🪪 Daily Horoscope Report for {name}
 
@@ -201,10 +218,11 @@ report = f"""
 {zodiac_traits[zodiac]}
 """
 
+# ✅ Add download button after report is created
+st.subheader("📥 Download Your Horoscope Report")
 st.download_button(
     label="📄 Download Horoscope Report",
     data=report,
     file_name=f"{name}_horoscope_report.txt",
     mime="text/plain"
 )
-
