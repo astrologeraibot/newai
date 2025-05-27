@@ -245,7 +245,7 @@ Sun Sign: {zodiac.title()} {emoji}
 
 # Your existing chatbot or form logic here
 
-st.markdown("### If you want your Birth Chart in Detaille")
+st.markdown("### If you want your Birth Chart in Detail")
 
 if st.button("Click Here"):
     webbrowser.open_new_tab("https://www.example.com")
