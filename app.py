@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import date, time, datetime
+from datetime import date, time
 import random
 
 st.set_page_config(page_title="Astrologer Bot", layout="centered")
@@ -22,7 +22,7 @@ def get_zodiac_sign(dob):
     elif (month == 10 and day >= 23) or (month == 11 and day <= 21): return "scorpio"
     elif (month == 11 and day >= 22) or (month == 12 and day <= 21): return "sagittarius"
 
-# ---------------------- Horoscope Content ----------------------
+# ---------------------- Horoscope Data (same as yours) ----------------------
 daily_horoscopes = {
     "aries": {
         "general": "Today is a day of action, Aries. Your natural leadership is highlighted, and people around you will seek your guidance. Challenges may arise, but they are merely stepping stones to greater success. Stay alert and proactive—opportunities for growth, especially in creative or personal ventures, are closer than they appear.",
@@ -134,6 +134,7 @@ daily_horoscopes = {
     }
 }
 
+# ---------------------- Traits ----------------------
 zodiac_traits = {
     "aries": "Bold 🔥 | Confident 💪 | Adventurous 🌍",
     "taurus": "Patient 🌿 | Loyal 🐂 | Stable 🪨",
@@ -159,68 +160,27 @@ with st.form("astro_form"):
 if submitted:
     zodiac = get_zodiac_sign(dob)
     data = daily_horoscopes[zodiac]
+    traits = zodiac_traits[zodiac]
 
-    st.success(f"🌞 **Hello {name}, your Zodiac Sign is `{zodiac.title()}`**")
+    st.success(f"🌞 Hello {name}, your Zodiac Sign is **{zodiac.title()}**!")
 
     st.subheader("🌟 Daily Horoscope")
     st.markdown(f"""
-    **{data['general']}**
-
-    ❤️ **Love**: {data['love']}  
-    💼 **Career**: {data['career']}  
-    🩺 **Health**: {data['health']}  
-    🎨 **Lucky Color**: `{data['color']}`  
-    🔢 **Lucky Number**: `{data['number']}`  
-    """)
-
-    st.subheader("🗺️ Basic Birth Chart Summary")
-    st.markdown(f"""
-    - 🗓️ **Date of Birth**: `{dob.strftime('%B %d, %Y')}`
-    - ⏰ **Time of Birth**: `{tob.strftime('%I:%M %p')}`
-    - 🌟 **Sun Sign (Zodiac)**: `{zodiac.title()}`
-    - 💫 **Traits**: {zodiac_traits[zodiac]}
-    """)
-    
-# ✅ Already defined earlier:
-zodiac = get_zodiac_sign(dob)
-data = daily_horoscopes[zodiac]
-
-st.success(f"🌞 **Hello {name}, your Zodiac Sign is `{zodiac.title()}`**")
-st.markdown(f"""
 **{data['general']}**
 
 ❤️ **Love**: {data['love']}  
 💼 **Career**: {data['career']}  
 🩺 **Health**: {data['health']}  
-🎨 **Lucky Color**: `{data['color']}`  
-🔢 **Lucky Number**: `{data['number']}`  
+🎨 **Lucky Color**: {data['color']}  
+🔢 **Lucky Number**: {data['number']}  
 """)
 
-# ✅ Now it's safe to generate report
-report = f"""
-🪪 Daily Horoscope Report for {name}
+    st.subheader("🧬 Zodiac Personality Traits")
+    st.info(f"**{traits}**")
 
-🗓️ Date of Birth: {dob.strftime('%B %d, %Y')}
-🌞 Zodiac Sign: {zodiac.title()}
-
-🔮 Daily Horoscope:
-{data['general']}
-
-❤️ Love: {data['love']}
-💼 Career: {data['career']}
-🩺 Health: {data['health']}
-🎨 Lucky Color: {data['color']}
-🔢 Lucky Number: {data['number']}
-
-💫 Traits of {zodiac.title()}:
-{zodiac_traits[zodiac]}
-"""
-
-# ✅ Add download button after report is created
-st.subheader("📥 Download Your Horoscope Report")
-st.download_button(
-    label="📄 Download Horoscope Report",
-    data=report,
-    file_name=f"{name}_horoscope_report.txt",
-    mime="text/plain"
-)
+    st.subheader("🗺️ Basic Birth Chart Summary")
+    st.markdown(f"""
+- 🗓️ **Date of Birth**: `{dob.strftime('%B %d, %Y')}`
+- ⏰ **Time of Birth**: `{tob.strftime('%I:%M %p')}`
+- 🌟 **Sun Sign**: `{zodiac.title()}`
+""")
