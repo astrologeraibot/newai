@@ -173,10 +173,22 @@ if submitted:
     🔢 **Lucky Number**: `{data['number']}`  
     """)
 
+      moon = get_moon_sign(dob, tob)
+    rising = get_rising_sign(tob)
+    element = get_element(zodiac)
+    modality = get_modality(zodiac)
+    ruler = get_ruling_planet(zodiac)
+
     st.subheader("🗺️ Basic Birth Chart Summary")
     st.markdown(f"""
     - 🗓️ **Date of Birth**: `{dob.strftime('%B %d, %Y')}`
     - ⏰ **Time of Birth**: `{tob.strftime('%I:%M %p')}`
-    - 🌟 **Zodiac Sign**: `{zodiac.title()}`
+    - 🌟 **Sun Sign (Zodiac)**: `{zodiac.title()}`
+    - 🌕 **Moon Sign**: `{moon.title()}`
+    - 🔼 **Rising Sign (Ascendant)**: `{rising.title()}`
+    - 🌪️ **Element**: `{element}`
+    - 🌀 **Modality**: `{modality}`
+    - 🪐 **Ruling Planet**: `{ruler}`
     - 💫 **Traits**: {zodiac_traits[zodiac]}
     """)
+
