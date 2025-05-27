@@ -184,3 +184,31 @@ if submitted:
 - ⏰ **Time of Birth**: `{tob.strftime('%I:%M %p')}`
 - 🌟 **Sun Sign**: `{zodiac.title()}`
 """)
+    # After displaying the birth chart summary
+    horoscope_text = f"""
+🌞 Hello {name}, your Zodiac Sign is {zodiac.title()}!
+
+🌟 Daily Horoscope
+{data['general']}
+
+❤️ Love: {data['love']}
+💼 Career: {data['career']}
+🩺 Health: {data['health']}
+🎨 Lucky Color: {data['color']}
+🔢 Lucky Number: {data['number']}
+
+🧬 Zodiac Personality Traits
+{traits}
+
+🗺️ Basic Birth Chart Summary
+Date of Birth: {dob.strftime('%B %d, %Y')}
+Time of Birth: {tob.strftime('%I:%M %p')}
+(Zodiac sign-based summary only)
+"""
+
+    st.download_button(
+        label="📥 Download Horoscope as TXT",
+        data=horoscope_text,
+        file_name=f"{name}_horoscope.txt",
+        mime="text/plain"
+    )
