@@ -2,6 +2,7 @@ import streamlit as st
 from datetime import date, time
 import random
 import io
+import pandas as pd
 
 st.set_page_config(page_title="Astrologer Bot", layout="centered")
 st.title("🔮 Astrologer Bot")
@@ -233,6 +234,15 @@ Time of Birth: {tob.strftime('%I:%M %p')}
 Sun Sign: {zodiac.title()} {emoji}
 """
 
+df = pd.read_csv("zodiac_compatibility_updated.csv")
+
+def get_compatibility(sign1, sign2):
+    row = df[((df['sign1'] == sign1) & (df['sign2'] == sign2)) |
+             ((df['sign1'] == sign2) & (df['sign2'] == sign1))]
+    if not row.empty:
+        return row.iloc[0]['compatibility']
+    return "Compatibility not found."
+    
     # Convert to bytes
     text_bytes = io.BytesIO(text_output.encode('utf-8'))
 
