@@ -242,10 +242,3 @@ Sun Sign: {zodiac.title()} {emoji}
         file_name=f"{name}_horoscope.txt",
         mime="text/plain"
     )
-
-# Your existing chatbot or form logic here
-
-st.markdown("### If you want your Birth Chart in Detail")
-
-if st.button("Click Here"):
-    webbrowser.open_new_tab("https://www.example.com")
