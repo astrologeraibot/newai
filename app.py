@@ -206,7 +206,8 @@ if submitted:
 
     # Create text content for download
     text_output = f"""
-🔮 Horoscope Report for {name}
+
+report = f"🔮 Horoscope Report for {name}"
 ==============================
 
 Zodiac Sign: {zodiac.title()} {emoji}
