@@ -201,8 +201,7 @@ if submitted:
 🗓️ Date of Birth: {dob.strftime('%B %d, %Y')}
 ⏰ Time of Birth: {tob.strftime('%I:%M %p')}
 🌞 Sun Sign: {zodiac.title()} {emoji}
-📍 (Moon, Ascendant, and Planets not shown in this basic version)
-"""
+   
     st.code(birth_summary)
 
     # Create text content for download
