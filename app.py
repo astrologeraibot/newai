@@ -201,22 +201,22 @@ if submitted:
 🗓️ Date of Birth: {dob.strftime('%B %d, %Y')}
 ⏰ Time of Birth: {tob.strftime('%I:%M %p')}
 🌞 Sun Sign: {zodiac.title()} {emoji}
-   
+📍 (Moon, Ascendant, and Planets not shown in this basic version)
+"""
     st.code(birth_summary)
 
     # Create text content for download
     text_output = f"""
-
-report = f"🔮 Horoscope Report for {name}"
+🔮 Horoscope Report for {name}
 ==============================
 
 Zodiac Sign: {zodiac.title()} {emoji}
 
-"🌟 Daily Horoscope"
+🌟 Daily Horoscope
 -------------------
 {data['general']}
 
-"❤️ Love: {data['love']}"
+❤️ Love: {data['love']}
 💼 Career: {data['career']}
 🩺 Health: {data['health']}
 🎨 Lucky Color: {data['color']}
@@ -232,7 +232,7 @@ Date of Birth: {dob.strftime('%B %d, %Y')}
 Time of Birth: {tob.strftime('%I:%M %p')}
 Sun Sign: {zodiac.title()} {emoji}
 """
-    
+
     # Convert to bytes
     text_bytes = io.BytesIO(text_output.encode('utf-8'))
 
