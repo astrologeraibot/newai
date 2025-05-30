@@ -216,7 +216,7 @@ Zodiac Sign: {zodiac.title()} {emoji}
 -------------------
 {data['general']}
 
-❤️ Love: {data['love']}
+"❤️ Love: {data['love']}"
 💼 Career: {data['career']}
 🩺 Health: {data['health']}
 🎨 Lucky Color: {data['color']}
