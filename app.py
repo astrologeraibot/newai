@@ -212,7 +212,7 @@ report = f"🔮 Horoscope Report for {name}"
 
 Zodiac Sign: {zodiac.title()} {emoji}
 
-🌟 Daily Horoscope
+"🌟 Daily Horoscope"
 -------------------
 {data['general']}
 
