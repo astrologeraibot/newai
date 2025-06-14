@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: astrologer-bot
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: streamlit run app.py --server.port=$PORT --server.enableCORS=false
+    repo: https://github.com/astrologeraibot/newai
